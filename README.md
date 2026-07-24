@@ -2,6 +2,8 @@
 
 在網頁輸入 `.bat` 路徑與時間，透過 **Windows 工作排程器** 在指定時刻自動執行。
 
+**系統設計文件：** [docs/DESIGN.md](docs/DESIGN.md)
+
 ## 使用方式
 
 1. 雙擊 `start.bat`，或在 PowerShell 執行：
