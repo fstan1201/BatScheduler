@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>維護使用者 · Bat 排程器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <main class="shell">
+    <div class="topbar panel compact">
+      <div class="topbar-left">
+        <p id="nav-back"></p>
+        <p class="topbar-user">使用者：<strong id="current-user">—</strong> <span id="current-role" class="role-tag"></span></p>
+      </div>
+      <button type="button" id="logout-btn" class="ghost">登出</button>
+    </div>
+
+    <header class="brand">
+      <p class="brand-mark">Users</p>
+      <h1>維護使用者</h1>
+      <p class="lede">管理可登入此系統的帳號、密碼與角色。</p>
+    </header>
+
+    <section class="list-panel" aria-labelledby="users-title">
+      <div class="list-head">
+        <h2 id="users-title">使用者列表</h2>
+        <button type="button" id="refresh-users-btn" class="ghost">重新整理</button>
+      </div>
+
+      <form id="user-form" class="user-form" autocomplete="off">
+        <div class="row">
+          <label class="field">
+            <span>新帳號</span>
+            <input id="new-username" type="text" maxlength="32" pattern="[A-Za-z0-9_]+" placeholder="例如：operator" />
+          </label>
+          <label class="field">
+            <span>密碼</span>
+            <input id="new-password" type="password" autocomplete="new-password" />
+          </label>
+        </div>
+        <label class="field">
+          <span>角色</span>
+          <select id="new-role">
+            <option value="user">一般使用者</option>
+            <option value="admin">管理者</option>
+          </select>
+        </label>
+        <button type="submit" class="cta">新增使用者</button>
+        <p id="user-form-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <ul id="users-list" class="users-list"></ul>
+      <p id="users-empty" class="empty hidden">尚無使用者。</p>
+    </section>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/users.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>執行排程 · Bat 排程器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <main class="shell">
+    <div class="topbar panel compact">
+      <div class="topbar-left">
+        <p id="nav-back"></p>
+        <p class="topbar-user">使用者：<strong id="current-user">—</strong> <span id="current-role" class="role-tag"></span></p>
+      </div>
+      <button type="button" id="logout-btn" class="ghost">登出</button>
+    </div>
+
+    <header class="brand">
+      <p class="brand-mark">Scheduler</p>
+      <h1>執行排程</h1>
+      <p class="lede">輸入 bat 路徑與時間，或使用立刻執行；系統會透過 Windows 工作排程器在指定時刻啟動。</p>
+    </header>
+
+    <form id="schedule-form" class="panel" autocomplete="off">
+      <label class="field">
+        <span>Bat 檔路徑</span>
+        <input
+          id="bat-path"
+          name="batPath"
+          type="text"
+          required
+          placeholder="C:\Scripts\backup.bat"
+          spellcheck="false"
+        />
+      </label>
+
+      <div class="row">
+        <label class="field">
+          <span>執行日期</span>
+          <input id="run-date" name="runDate" type="date" required />
+        </label>
+        <label class="field">
+          <span>執行時間</span>
+          <input id="run-time" name="runTime" type="time" required />
+        </label>
+      </div>
+
+      <label class="field checkbox">
+        <input id="daily" name="daily" type="checkbox" />
+        <span>之後每天同時間重複執行</span>
+      </label>
+
+      <label class="field">
+        <span>任務名稱（選填）</span>
+        <input
+          id="task-name"
+          name="taskName"
+          type="text"
+          maxlength="80"
+          placeholder="例如：每日備份"
+        />
+      </label>
+
+      <div class="form-actions">
+        <button type="button" id="run-now-btn" class="ghost run-now">立刻執行</button>
+        <button type="submit" class="cta">建立排程</button>
+      </div>
+      <p id="form-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <section class="list-panel" aria-labelledby="history-title">
+      <div class="list-head">
+        <h2 id="history-title">執行紀錄</h2>
+        <button type="button" id="refresh-history-btn" class="ghost">重新整理</button>
+      </div>
+      <ul id="history-list" class="history-list"></ul>
+      <p id="history-empty" class="empty">尚無執行紀錄。使用「立刻執行」或排程觸發後會顯示在這裡。</p>
+    </section>
+
+    <section class="list-panel" aria-labelledby="list-title">
+      <div class="list-head">
+        <h2 id="list-title">已建立的排程</h2>
+        <button type="button" id="refresh-btn" class="ghost">重新整理</button>
+      </div>
+      <ul id="schedule-list" class="schedule-list"></ul>
+      <p id="empty-state" class="empty">尚無排程。建立後會顯示在這裡。</p>
+    </section>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/scheduler.js"></script>
+</body>
+</html>

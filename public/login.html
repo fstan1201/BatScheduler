@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>登入 · Bat 排程器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <main class="shell shell-narrow">
+    <header class="brand">
+      <p class="brand-mark">Bat Scheduler</p>
+      <h1>登入</h1>
+      <p class="lede">請輸入帳號與密碼以使用排程與執行功能。</p>
+    </header>
+
+    <form id="login-form" class="panel" autocomplete="off">
+      <label class="field">
+        <span>帳號</span>
+        <input id="username" name="username" type="text" required autocomplete="username" />
+      </label>
+      <label class="field">
+        <span>密碼</span>
+        <input id="password" name="password" type="password" required autocomplete="current-password" />
+      </label>
+      <button type="submit" class="cta">登入</button>
+      <p id="login-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Local runtime data (schedules, users, execution history, tunnel state)
+/data/*
+!/data/.gitkeep
+
+# Downloaded by start-tunnel.ps1 (large binary)
+/tools/cloudflared.exe
+
+# Logs
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

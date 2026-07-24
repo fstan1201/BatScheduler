@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>主選單 · Bat 排程器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <main class="shell shell-menu">
+    <div class="topbar panel compact">
+      <p class="topbar-user">使用者：<strong id="current-user">—</strong> <span id="current-role" class="role-tag"></span></p>
+      <button type="button" id="logout-btn" class="ghost">登出</button>
+    </div>
+
+    <header class="brand">
+      <p class="brand-mark">Menu</p>
+      <h1>主選單</h1>
+      <p class="lede">請選擇要使用的功能。</p>
+    </header>
+
+    <nav class="menu-grid" aria-label="主選單">
+      <a class="menu-card panel" href="/scheduler.html">
+        <h2>執行排程</h2>
+        <p>建立 bat 排程、立刻執行，並查看執行紀錄。</p>
+      </a>
+      <a id="menu-users-link" class="menu-card panel hidden" href="/users.html">
+        <h2>維護使用者</h2>
+        <p>新增帳號、重設密碼與管理角色（管理者）。</p>
+      </a>
+    </nav>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/menu.js"></script>
+</body>
+</html>
